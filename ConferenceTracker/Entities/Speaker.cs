@@ -39,7 +39,7 @@ namespace ConferenceTracker.Entities
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var result = new List<ValidationResult>();
-            var isTechConferenceMailAddress = EmailAddress?.Equals("TechnologyLiveConference.com", StringComparison.OrdinalIgnoreCase) ?? false;
+            var isTechConferenceMailAddress = EmailAddress?.EndsWith("TechnologyLiveConference.com", StringComparison.OrdinalIgnoreCase) ?? false;
             if (isTechConferenceMailAddress) {
                 result.Add(new ValidationResult("Technology Live Conference staff should not use their conference email addresses."));
             }
